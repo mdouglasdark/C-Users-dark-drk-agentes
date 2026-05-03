@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   const { passageiros, images } = await req.json()
 
   const prompt = buildCheckinPrompt(passageiros)
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' })
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' }, { apiVersion: 'v1' })
 
   const parts: (string | Part)[] = [{ text: prompt }]
   for (const img of (images || [])) {
