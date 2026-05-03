@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   const { tipo, nome, passageiros, valorPix, parcelas, valorParcela, images } = body
 
   const prompt = buildPropostaPrompt({ tipo, nome, passageiros, valorPix, parcelas, valorParcela })
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' })
 
   const parts: (string | Part)[] = [{ text: prompt }]
   for (const img of (images || [])) {
